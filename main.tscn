@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://njlh84o3byn"]
+
+[ext_resource type="Material" uid="uid://bx6qeabdhq2s" path="res://addons/kenney_prototype_tools/materials/dark/material_01.tres" id="1_cui1v"]
+[ext_resource type="PackedScene" uid="uid://kn6t651l7iox" path="res://prefabs/entities/player/player.tscn" id="2_w15b1"]
+[ext_resource type="PackedScene" uid="uid://dp0m3hhn2e3lr" path="res://models/player/male_toon_block01.glb" id="3_0vitx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ugwu5"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_nii0d"]
+sky_material = SubResource("ProceduralSkyMaterial_ugwu5")
+
+[sub_resource type="Environment" id="Environment_nucod"]
+background_mode = 2
+sky = SubResource("Sky_nii0d")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="main" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nucod")
+
+[node name="rooms" type="Node3D" parent="."]
+
+[node name="level01" type="Node3D" parent="rooms"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="rooms/level01"]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -8)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -8)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2, -16)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 2, -16)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, 4)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 2, -4)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 2, -20)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, -20)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 2, -20)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 2, -4)
+size = Vector3(1, 4, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -16)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -16)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="player" parent="rooms/level01" instance=ExtResource("2_w15b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51344, 0)
+
+[node name="male_toon_block01" parent="." instance=ExtResource("3_0vitx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98269, 0.5, -0.186411)
