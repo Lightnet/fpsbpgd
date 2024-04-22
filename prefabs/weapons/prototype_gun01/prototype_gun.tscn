@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq31o56kdogbc"]
+
+[ext_resource type="Script" path="res://prefabs/weapons/prototype_gun01/prototype_gun01.gd" id="1_yhj75"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gdkv6"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5gw0m"]
+size = Vector3(0.1, 0.1, 0.4)
+
+[node name="prototype_gun" type="Node3D"]
+script = ExtResource("1_yhj75")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gdkv6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102842, -0.087159)
+mesh = SubResource("BoxMesh_5gw0m")
+
+[node name="FirePoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10171, -0.355293)

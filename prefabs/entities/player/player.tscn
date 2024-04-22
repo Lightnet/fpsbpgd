@@ -1,12 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://kn6t651l7iox"]
+[gd_scene load_steps=9 format=3 uid="uid://kn6t651l7iox"]
 
 [ext_resource type="Script" path="res://scripts/player/RigPlayer.gd" id="1_31xkk"]
 [ext_resource type="Script" path="res://scripts/state_machines/statemachine.gd" id="2_036ag"]
 [ext_resource type="Script" path="res://scripts/state_machines/state_idle.gd" id="3_cphvi"]
 [ext_resource type="Script" path="res://scripts/state_machines/state_run.gd" id="4_7aaho"]
 [ext_resource type="Script" path="res://scripts/state_machines/state_air.gd" id="5_e0po0"]
+[ext_resource type="PackedScene" uid="uid://dq31o56kdogbc" path="res://prefabs/weapons/prototype_gun01/prototype_gun.tscn" id="6_u21qh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8675p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_esqru"]
 
 [node name="player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01344, 0)
@@ -16,7 +19,12 @@ script = ExtResource("1_31xkk")
 shape = SubResource("CapsuleShape3D_8675p")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.953717, 0.300706, 0, -0.300706, 0.953717, 0, 0.653338, -0.141683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653338, -0.141683)
+
+[node name="right_handle2" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395, -0.406778, -0.410317)
+
+[node name="prototype_gun" parent="Camera3D/right_handle2" instance=ExtResource("6_u21qh")]
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_036ag")
@@ -35,4 +43,10 @@ script = ExtResource("5_e0po0")
 
 [node name="Tools" type="Node" parent="."]
 
+[node name="right_handle" type="Node3D" parent="Tools"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395, 1.26, -0.552)
+
 [node name="Equips" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_esqru")

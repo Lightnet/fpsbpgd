@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqnt4bjn8os42"]
+
+[ext_resource type="Script" path="res://prefabs/projectiles/prototype_bullet01/prototype_bullet01.gd" id="1_4eshy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6biuy"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4x23m"]
+radius = 0.05
+height = 0.1
+
+[node name="prototype_bullet" type="Node3D"]
+script = ExtResource("1_4eshy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6biuy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0544243)
+mesh = SubResource("SphereMesh_4x23m")

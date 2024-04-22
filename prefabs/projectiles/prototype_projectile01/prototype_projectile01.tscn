@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://m3kjnebgs2mh"]
+
+[ext_resource type="Script" path="res://prefabs/projectiles/prototype_projectile01/prototype_projectile01.gd" id="1_7uc5e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6biuy"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="prototype_projectile" type="Node3D"]
+script = ExtResource("1_7uc5e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6biuy")

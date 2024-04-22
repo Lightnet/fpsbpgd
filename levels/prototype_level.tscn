@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://njlh84o3byn"]
+[gd_scene load_steps=10 format=3 uid="uid://njlh84o3byn"]
 
 [ext_resource type="Material" uid="uid://bx6qeabdhq2s" path="res://addons/kenney_prototype_tools/materials/dark/material_01.tres" id="1_cui1v"]
 [ext_resource type="PackedScene" uid="uid://kn6t651l7iox" path="res://prefabs/entities/player/player.tscn" id="2_w15b1"]
@@ -17,14 +17,17 @@ sky = SubResource("Sky_nii0d")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6cd8t"]
+albedo_color = Color(0.36, 0.36, 0.36, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5iixm"]
+material = SubResource("StandardMaterial3D_6cd8t")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gc6bf"]
+size = Vector3(4, 0.2, 4)
+
 [node name="main" type="Node"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nucod")
 
 [node name="rooms" type="Node3D" parent="."]
 
@@ -83,7 +86,7 @@ size = Vector3(1, 4, 8)
 material = ExtResource("1_cui1v")
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, -20)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, -36)
 size = Vector3(1, 4, 8)
 material = ExtResource("1_cui1v")
 
@@ -112,6 +115,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
 size = Vector3(8, 1, 8)
 material = ExtResource("1_cui1v")
 
+[node name="CSGBox3D20" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -32)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -32)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -24)
+size = Vector3(8, 1, 8)
+material = ExtResource("1_cui1v")
+
 [node name="CSGBox3D8" type="CSGBox3D" parent="rooms/level01/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -16)
 size = Vector3(8, 1, 8)
@@ -128,7 +156,34 @@ size = Vector3(8, 1, 8)
 material = ExtResource("1_cui1v")
 
 [node name="player" parent="rooms/level01" instance=ExtResource("2_w15b1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51344, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.51344, -29.4136)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="rooms/level01"]
+environment = SubResource("Environment_nucod")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="rooms/level01"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="point" type="MeshInstance3D" parent="rooms/level01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94157, 1.10059, -13.0949)
+mesh = SubResource("BoxMesh_5iixm")
+
+[node name="Node3D" type="Node3D" parent="rooms/level01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, -26)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rooms/level01/Node3D"]
+mesh = SubResource("BoxMesh_gc6bf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rooms/level01/Node3D/MeshInstance3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="rooms/level01/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_gc6bf")
+
+[node name="Camera3D" type="Camera3D" parent="rooms/level01"]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -24)
 
 [node name="male_toon_block01" parent="." instance=ExtResource("3_0vitx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98269, 0.5, -0.186411)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://uw4xwt8du65j"]
+
+[ext_resource type="Script" path="res://prefabs/turrets/prototype_turret01/prototype_turret.gd" id="1_1rg7o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6biuy"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hktiy"]
+size = Vector3(0.2, 0.2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpmxv"]
+albedo_color = Color(1, 0.21, 0.21, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_juquq"]
+lightmap_size_hint = Vector2i(0, 8455)
+material = SubResource("StandardMaterial3D_qpmxv")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="prototype_turret" type="Node3D"]
+script = ExtResource("1_1rg7o")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.92027)
+visible = false
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="base" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_6biuy")
+
+[node name="pitch" type="MeshInstance3D" parent="Node3D/base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37548, 0)
+mesh = SubResource("BoxMesh_hktiy")
+skeleton = NodePath("../..")
+
+[node name="point" type="MeshInstance3D" parent="Node3D/base/pitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.430695)
+mesh = SubResource("BoxMesh_juquq")
+skeleton = NodePath("../../..")
