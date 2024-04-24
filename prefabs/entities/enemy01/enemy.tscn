@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgecp28e1pwkj"]
+
+[ext_resource type="Script" path="res://prefabs/entities/enemy01/enemy01.gd" id="1_msre2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj23n"]
+albedo_color = Color(1, 0.21, 0.21, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_o51w7"]
+material = SubResource("StandardMaterial3D_wj23n")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rbxli"]
+
+[node name="Enemy" type="RigidBody3D" groups=["Enemy"]]
+script = ExtResource("1_msre2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_o51w7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_rbxli")

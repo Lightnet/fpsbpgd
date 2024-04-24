@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://camndcg10fe2y"]
+
+[ext_resource type="Script" path="res://prefabs/prototype_box/prototype_box01.gd" id="1_do8ds"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x25nb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_518dv"]
+albedo_color = Color(1, 1, 0.290196, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_afxc3"]
+material = SubResource("StandardMaterial3D_518dv")
+
+[node name="prototype_box" type="RigidBody3D" groups=["Box"]]
+script = ExtResource("1_do8ds")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_x25nb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_afxc3")

@@ -22,10 +22,11 @@ func shoot():
 	#get_tree().add_sibling(b)#nope
 	#add_sibling(b)
 	#call_deferred()
-	print("get_tree():", get_tree().get_root().get_node('main'))
+	#print("get_tree():", get_tree().get_root().get_node('main'))
 	
 	#get_tree().get_root().get_node('main/rooms/level01').add_sibling(b)
-	get_tree().get_root().get_node('main/rooms/level01').add_child(b)
+	#get_tree().get_root().get_node('main/rooms/level01').add_child(b)
+	SceneData.getLevelScene().add_child(b)
 	#owner.add_child(b)
 	#b.global_position = fire_point.global_position
 	#b.rotation = fire_point.rotation

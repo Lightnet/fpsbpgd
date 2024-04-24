@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvbtgfqvj6sh1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gc6bf"]
+size = Vector3(4, 0.2, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x3n83"]
+size = Vector3(0.2, 3, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yx2ga"]
+size = Vector3(4, 3, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tgdct"]
+size = Vector3(1, 3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7lr5q"]
+size = Vector3(4, 0.2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7rry"]
+size = Vector3(0.2, 3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0vh13"]
+size = Vector3(4, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgtx4"]
+size = Vector3(1, 3, 0.2)
+
+[node name="lift" type="AnimatableBody3D"]
+
+[node name="Mesh_floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_gc6bf")
+
+[node name="Mesh_left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
+mesh = SubResource("BoxMesh_x3n83")
+
+[node name="Mesh_back" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2)
+mesh = SubResource("BoxMesh_yx2ga")
+
+[node name="Mesh_front_left" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -2)
+mesh = SubResource("BoxMesh_tgdct")
+
+[node name="Mesh_front_right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, -2)
+mesh = SubResource("BoxMesh_tgdct")
+
+[node name="Mesh_right" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 0)
+mesh = SubResource("BoxMesh_x3n83")
+
+[node name="Mesh_top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_gc6bf")
+
+[node name="coll_bottom" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7lr5q")
+
+[node name="coll_left" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.5, 0)
+shape = SubResource("BoxShape3D_m7rry")
+
+[node name="coll_right" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 0)
+shape = SubResource("BoxShape3D_m7rry")
+
+[node name="coll_back" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2)
+shape = SubResource("BoxShape3D_0vh13")
+
+[node name="coll_front_right" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, -2)
+shape = SubResource("BoxShape3D_vgtx4")
+
+[node name="coll_front_left" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.5, -2)
+shape = SubResource("BoxShape3D_vgtx4")
+
+[node name="coll_top" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_7lr5q")

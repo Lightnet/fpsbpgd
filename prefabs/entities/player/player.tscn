@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://kn6t651l7iox"]
+[gd_scene load_steps=10 format=3 uid="uid://kn6t651l7iox"]
 
 [ext_resource type="Script" path="res://scripts/player/RigPlayer.gd" id="1_31xkk"]
 [ext_resource type="Script" path="res://scripts/state_machines/statemachine.gd" id="2_036ag"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/state_machines/state_run.gd" id="4_7aaho"]
 [ext_resource type="Script" path="res://scripts/state_machines/state_air.gd" id="5_e0po0"]
 [ext_resource type="PackedScene" uid="uid://dq31o56kdogbc" path="res://prefabs/weapons/prototype_gun01/prototype_gun.tscn" id="6_u21qh"]
+[ext_resource type="Script" path="res://prefabs/throwable/grenade01/right_hand_grenade.gd" id="7_hlu0a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8675p"]
 
@@ -22,9 +23,14 @@ shape = SubResource("CapsuleShape3D_8675p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653338, -0.141683)
 
 [node name="right_handle2" type="Node3D" parent="Camera3D"]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395, -0.406778, -0.410317)
+visible = false
 
 [node name="prototype_gun" parent="Camera3D/right_handle2" instance=ExtResource("6_u21qh")]
+
+[node name="hand_right_ref" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.353338, -0.458317)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_036ag")
@@ -41,12 +47,24 @@ script = ExtResource("5_e0po0")
 
 [node name="Actions" type="Node" parent="."]
 
-[node name="Tools" type="Node" parent="."]
+[node name="Tools" type="Node3D" parent="."]
 
 [node name="right_handle" type="Node3D" parent="Tools"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395, 1.26, -0.552)
+
+[node name="right_grenade" type="Node3D" parent="Tools"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395, 0.46, -0.552)
+script = ExtResource("7_hlu0a")
+
+[node name="fire_point" type="Node3D" parent="Tools/right_grenade"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.774373)
+
+[node name="Timer" type="Timer" parent="Tools/right_grenade"]
+one_shot = true
 
 [node name="Equips" type="Node" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_esqru")
+
+[connection signal="timeout" from="Tools/right_grenade/Timer" to="Tools/right_grenade" method="_on_timer_timeout"]

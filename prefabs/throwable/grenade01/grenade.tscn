@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bixqndkltsddg"]
+
+[ext_resource type="Script" path="res://prefabs/throwable/grenade01/grenade01.gd" id="1_aidqa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ua3rm"]
+bounce = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_70s8l"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dv1jd"]
+radius = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jx1ap"]
+radius = 4.0
+
+[node name="grenade" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_ua3rm")
+continuous_cd = true
+script = ExtResource("1_aidqa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_70s8l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dv1jd")
+
+[node name="Radius" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Radius"]
+shape = SubResource("SphereShape3D_jx1ap")
+
+[node name="FuseTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="body_entered" from="Radius" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="FuseTimer" to="." method="_on_fuse_timer_timeout"]
