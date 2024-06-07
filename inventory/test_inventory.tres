@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=14 format=3 uid="uid://2tmigecacx1o"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_s168c"]
+[ext_resource type="Resource" uid="uid://bg1x1laftwono" path="res://item/items/health_potion.tres" id="2_plt8y"]
+[ext_resource type="Resource" uid="uid://bstr2c6x2g53n" path="res://item/items/apple.tres" id="2_up1hm"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_74u63"]
+[ext_resource type="Resource" uid="uid://cn3hgdbggjb72" path="res://item/items/blue_book.tres" id="4_rth0r"]
+[ext_resource type="Resource" uid="uid://cykgqpdcpnlt2" path="res://item/items/iron_helm.tres" id="6_37ky2"]
+
+[sub_resource type="Resource" id="Resource_i8cjr"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("2_plt8y")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_tora0"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("2_up1hm")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_ojyro"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("2_up1hm")
+quantity = 90
+
+[sub_resource type="Resource" id="Resource_ji0ff"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("4_rth0r")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_nvj0s"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("6_37ky2")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_afnd7"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("2_up1hm")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_bakkn"]
+script = ExtResource("3_74u63")
+item_data = ExtResource("2_up1hm")
+quantity = 90
+
+[resource]
+script = ExtResource("1_s168c")
+slot_datas = Array[ExtResource("3_74u63")]([SubResource("Resource_i8cjr"), SubResource("Resource_tora0"), null, SubResource("Resource_ojyro"), null, SubResource("Resource_ji0ff"), SubResource("Resource_nvj0s"), null, SubResource("Resource_afnd7"), null, SubResource("Resource_bakkn"), null, null, null, null, null, null, null])

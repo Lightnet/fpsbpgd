@@ -1,6 +1,12 @@
 extends CharacterBody3D
 class_name Player
 
+@export var inventory_data: InventoryData
+@export var equip_inventory_data: InventoryDataEquip
+
+signal toggle_inventory()
+@onready var interact_ray = $Camera3D/InteractRay
+
 # An enum allows us to keep track of valid states.
 enum States {
 	IDLE, #use
@@ -23,11 +29,14 @@ var ladder_array = []
 @export var aceel = 10
 @export var CLIMB_SPEED = 4.0
 
+@export var health = 5
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	PlayerManger.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 #func _input(event):
@@ -74,10 +83,20 @@ func _physics_process(_delta):
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
-	
-	#if Input.is_action_just_pressed("inventory"):
-		#toggle_inventory.emit()
 		
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit()
+		
+	if Input.is_action_just_pressed("interact"):
+		interact()
+		pass
+		
+func interact() -> void:
+	if interact_ray.is_colliding():
+		#print("interact with ", interact_ray.get_collider())
+		interact_ray.get_collider().player_interact()
+	pass
+## drop item position
 func get_drop_position()->Vector3:
 	var direction = -camera.global_transform.basis.z
 	return camera.global_position + direction
@@ -87,4 +106,8 @@ func get_drop_position()->Vector3:
 func _move_toward():
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	velocity.z = move_toward(velocity.z, 0, SPEED)
+	pass
+
+func heal(heal_value:int)->void:
+	health += heal_value
 	pass

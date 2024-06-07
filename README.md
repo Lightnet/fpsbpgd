@@ -16,4 +16,4 @@
 	
 # Credits:
 	* https://www.youtube.com/@EightFaun
-     * https://www.youtube.com/watch?v=TOJjeOsHiwc How to Create Throwable Grenades in Godot 4.X!
+	 * https://www.youtube.com/watch?v=TOJjeOsHiwc How to Create Throwable Grenades in Godot 4.X!

@@ -3,8 +3,8 @@ extends RigidBody3D
 var damage = 50
 @onready var radius = $Radius
 
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
 
 func _on_fuse_timer_timeout():
 	var bodies = radius.get_overlapping_bodies()
@@ -20,5 +20,5 @@ func _on_fuse_timer_timeout():
 	queue_free()
 	#pass
 
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(_body):
 	pass # Replace with function body.

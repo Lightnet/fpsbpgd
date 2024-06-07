@@ -1,0 +1,19 @@
+[gd_resource type="AtlasTexture" load_steps=6 format=3 uid="uid://nssas1hljihv"]
+
+[ext_resource type="Texture2D" uid="uid://cbq0niuptfmft" path="res://addons/kenney_particle_pack/circle_01.png" id="1_eqjfq"]
+[ext_resource type="Texture2D" uid="uid://hlv5r51kdtne" path="res://addons/kenney_particle_pack/circle_02.png" id="2_ly4ie"]
+[ext_resource type="Texture2D" uid="uid://d28vxfuij1w26" path="res://addons/kenney_particle_pack/circle_03.png" id="3_a4cg5"]
+[ext_resource type="Texture2D" uid="uid://crbsant687a25" path="res://addons/kenney_particle_pack/circle_04.png" id="4_f4i7s"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_s7uhl"]
+frames = 4
+frame_0/texture = ExtResource("1_eqjfq")
+frame_1/texture = ExtResource("2_ly4ie")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_a4cg5")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_f4i7s")
+frame_3/duration = 1.0
+
+[resource]
+atlas = SubResource("AnimatedTexture_s7uhl")
